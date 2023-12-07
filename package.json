@@ -1,18 +1,28 @@
 {
-  "name": "@wengmaodong/deploy",
+  "name": "deploy",
   "version": "1.0.0",
   "description": "deploy project from local",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wengmaodong/deploy.git"
+  },
   "bin": {
     "deploy": "src/bin/deploy.js"
   },
   "scripts": {
     "prettier": "prettier --write ./src/*"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "deploy locally"
+  ],
+  "author": "wengmaodong",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wengmaodong/deploy/issues"
+  },
+  "homepage": "https://github.com/wengmaodong/deploy#readme",
   "dependencies": {
     "dayjs": "^1.11.10",
     "minimist": "^1.2.8",
