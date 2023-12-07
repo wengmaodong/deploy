@@ -1,0 +1,22 @@
+{
+  "name": "@wengmaodong/deploy",
+  "version": "1.0.0",
+  "description": "deploy project from local",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "deploy": "src/bin/deploy.js"
+  },
+  "scripts": {
+    "prettier": "prettier --write ./src/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "minimist": "^1.2.8",
+    "prettier": "^3.1.0",
+    "shelljs": "^0.8.5"
+  }
+}
