@@ -1,12 +1,12 @@
 {
-  "name": "deploy",
+  "name": "@wengmaodong/deploy",
   "version": "1.0.0",
   "description": "deploy project from local",
   "main": "src/index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wengmaodong/deploy.git"
+    "url": "https://github.com/wengmaodong/deploy.git"
   },
   "bin": {
     "deploy": "src/bin/deploy.js"
