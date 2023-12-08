@@ -23,8 +23,8 @@ const isRelease = env === "release";
 
 // 跳过打包，生产发布时不一定需要打包
 const needBuild = args.b || args.build || !isRelease;
-const envConfig = null;
-const projectConfig = null;
+let envConfig = null;
+let projectConfig = null;
 
 const validateConfig = () => {
   if (!project) {
@@ -139,7 +139,7 @@ const uploadFiles = () => {
     shell.exec(
       `ssh -n ${proxyOpt} ${remote} "sudo -i; cd ${destRoot}; unzip -o ${version}.zip; ${
         start_cmd || ""
-      } exit 0;"`,
+      } exit 0;"`
     );
     shell.echo("文件解压成功");
 
@@ -151,11 +151,24 @@ const uploadFiles = () => {
   }
 };
 
-export const start = () => {
-  //检查控制台是否以运行`git `开头的命令
+const start = () => {
+  //检查控制台是否可以运行`git `开头的命令
   if (!shell.which("git")) {
     //在控制台输出内容
-    shell.echo("Sorry, this script requires git");
+    shell.echo("请先安装git");
+    shell.exit(1);
+  }
+
+  if (!shell.which("ssh")) {
+    //在控制台输出内容
+    shell.echo("请先安装ssh");
+    shell.exit(1);
+  }
+
+  
+  if (!shell.which("zip") || !shell.which("unzip")) {
+    //在控制台输出内容
+    shell.echo("请先安装 zip 和 unzip 命令");
     shell.exit(1);
   }
 
@@ -183,4 +196,8 @@ export const start = () => {
   uploadFiles();
 
   shell.echo("部署成功");
+};
+
+module.exports = {
+  start,
 };

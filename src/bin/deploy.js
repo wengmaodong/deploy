@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { start } from "..";
+const { start } = require("..");
 
 start();

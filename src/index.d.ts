@@ -1,8 +1,3 @@
-本地开发时部署至远端服务器，支持配置跳板机
-
-### 配置文件
-
-```typescript
 interface Env {
   /**
    * 主机地址
@@ -79,48 +74,3 @@ interface DeployConfig {
   env: Record<string, Env>;
   projects: Record<string, Project>;
 }
-```
-
-地址：根目录下 deploy.config.json
-示例：
-```json
-{
-  "env": {
-    "test": {
-      "host": "10.111.111.114",
-      "user": "root",
-      "desc": "测试环境",
-      "password": "123456"
-    },
-    "release": {
-      "host": "111.161.111.191",
-      "user": "root",
-      "desc": "生产环境",
-      "password": "",
-      "proxy": {
-        "host": "111.161.111.192",
-        "user": "root",
-        "desc": "生产环境跳板机",
-        "password": ""
-      }
-    }
-  },
-  "projects": {
-    "dataease_backend": {
-      "root": "H:/work/adt-dataease-backend",
-      "outDir": "target",
-      "zipFile": "backend-1.16.0.jar",
-      "desc": "dataease后端",
-      "destRoot": "/data/app/dataease",
-      "build_cmd": "mvn clean package",
-      "start_cmd": "./shutdown.sh; sudo -i; ./start.sh;"
-    }
-  }
-}
-```
-
-### 支持的CLI参数
-
-- -p，-project 项目名称
-- -e, -env 指定部署环境，默认值 test
-- -b, -build 打包前是否执行build_cmd
