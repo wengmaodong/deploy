@@ -117,7 +117,7 @@ const createProxy = () => {
 const uploadFiles = () => {
   try {
     const { root, outDir, destRoot, start_cmd } = projectConfig;
-    const { host, proxy, desc, user, password } = envConfig;
+    const { host, proxy, desc, user } = envConfig;
     let proxyOpt = "";
     let closeProxy;
     const remote = `${user}@${host}`;

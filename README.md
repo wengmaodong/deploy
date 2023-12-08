@@ -1,5 +1,10 @@
 本地开发时部署至远端服务器，支持配置跳板机
 
+### 环境要求
+git 
+ssh 需要配置好服务器的免登录(ssh-copy-id user@host)
+zip, unzip Windows需要下载并配置环境变量
+
 ### 配置文件
 
 ```typescript
@@ -21,12 +26,6 @@ interface Env {
    * @example xx后台正式环境
    */
   desc: string;
-
-  /**
-   * 密码，可以配置免登录 用 [ssh-copy-id] 命令上传密钥
-   * @example 12344
-   */
-  password?: string;
 
   /**
    * 代理，跳板机配置，配置了代理会自动开启隧道
@@ -96,12 +95,10 @@ interface DeployConfig {
       "host": "111.161.111.191",
       "user": "root",
       "desc": "生产环境",
-      "password": "",
       "proxy": {
         "host": "111.161.111.192",
         "user": "root",
         "desc": "生产环境跳板机",
-        "password": ""
       }
     }
   },
