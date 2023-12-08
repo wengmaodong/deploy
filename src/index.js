@@ -14,15 +14,13 @@ const configPath = path.resolve(process.cwd(), "./deploy.config.json");
 const version = args.v || args.version || dayjs().format("YYYYMMDD");
 
 // 环境
-const env = args.e || args.env || "test";
+const env = args.e || args.env;
 const project = args.p || args.project;
 let config = null;
 let filename = `${version}.zip`;
 
-const isRelease = env === "release";
-
 // 跳过打包，生产发布时不一定需要打包
-const needBuild = args.b || args.build || !isRelease;
+const needBuild = args.b || args.build || false;
 let envConfig = null;
 let projectConfig = null;
 

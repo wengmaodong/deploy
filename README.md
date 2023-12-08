@@ -122,5 +122,5 @@ interface DeployConfig {
 ### 支持的CLI参数
 
 - -p，-project 项目名称
-- -e, -env 指定部署环境，默认值 test
+- -e, -env 指定部署环境
 - -b, -build 打包前是否执行build_cmd
